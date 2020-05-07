@@ -1,0 +1,13 @@
+.TodoList {
+    width: 20em !important;
+    min-width: 20em !important;
+    margin-bottom: 2em !important;
+}
+
+.todoListHeader{
+    display: flex;
+}
+
+.todoListTitle{
+    flex-grow: 1;
+}

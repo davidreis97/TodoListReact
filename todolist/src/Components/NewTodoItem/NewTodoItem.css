@@ -1,0 +1,8 @@
+.NewTodoItem{
+    display: flex;
+}
+
+.NewTodoItem .MuiTextField-root{
+    margin-right: 1em;
+    flex-grow: 1;
+}

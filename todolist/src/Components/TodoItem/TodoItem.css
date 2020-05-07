@@ -1,0 +1,19 @@
+.TodoItem{
+    display: flex;
+    min-height: 26px;
+    flex-wrap: wrap;
+}
+
+.TodoItemNameDone{
+    text-decoration: line-through;
+}
+
+.TodoItem .TodoItemName{
+    line-height: 26px;
+    flex-grow: 1;
+    text-align: left;
+}
+
+.TodoItem button, .MuiCheckbox-root{
+    padding: 0 !important;
+}

@@ -1,0 +1,13 @@
+.Auth{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.Auth button{
+    margin: 1em !important;
+}
+
+p{
+    margin: 0;
+}
