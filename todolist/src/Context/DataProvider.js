@@ -91,7 +91,7 @@ function DataProvider(props){
     let res = await userRequest("post","/user/item",{listId:project, title:title});
 
     if(res.status === 201){
-      return res.data.id;
+      return res.data;
     }else{
       return null;
     }
@@ -111,9 +111,9 @@ function DataProvider(props){
     let res = await userRequest("patch","/user/item",{id:id, title:title, done:done});
 
     if(res.status === 200){
-      return true;
+      return res.data;
     }else{
-      return false;
+      return null;
     }
   }
 

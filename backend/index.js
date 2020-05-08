@@ -165,6 +165,8 @@ function startServer(){
                     listObj.todoItems.push({
                         id: item._id,
                         title: item.title,
+                        creationDate: item.creationDate,
+                        finishDate: item.finishDate,
                         done: item.done
                     })
                 }
@@ -222,7 +224,9 @@ function startServer(){
                 _id: mongoose.Types.ObjectId(),
                 list: req.body.listId,
                 title: req.body.title,
-                done: false
+                done: false,
+                creationDate: new Date().getTime(),
+                finishDate: -1
             });
             newTodoItem.save((err,item) => {
                 if(err){
@@ -235,7 +239,13 @@ function startServer(){
                 }
     
                 res.statusCode = 201;
-                res.send({id:item._id});
+                res.send({
+                    id: item._id,
+                    title: item.title,
+                    creationDate: item.creationDate,
+                    finishDate: item.finishDate,
+                    done: item.done
+                });
             });
         });
     });
@@ -273,7 +283,14 @@ function startServer(){
 
             item.title = req.body.title;
             item.done = req.body.done;
-            item.save((err,_item) => {
+
+            if(item.done){
+                item.finishDate = new Date().getTime();
+            }else{
+                item.finishDate = -1;
+            }
+
+            item.save((err,item) => {
                 if(err){
                     console.log(err);
                     res.statusCode = 500;
@@ -284,7 +301,13 @@ function startServer(){
                 }
     
                 res.statusCode = 200;
-                res.send({});
+                res.send({
+                    id: item._id,
+                    title: item.title,
+                    creationDate: item.creationDate,
+                    finishDate: item.finishDate,
+                    done: item.done
+                });
             });
         });
     });

@@ -14,9 +14,9 @@ function TodoList({list, deleteList}){
   let [state,changeState] = useState(list);
   
   async function addItem(itemName){
-    let newID = await data.addTodoItem(state.id,itemName);
-    if(newID){
-      changeState({...state,todoItems: [...state.todoItems,{id:newID, title: itemName, done: false}]});
+    let newItem = await data.addTodoItem(state.id,itemName);
+    if(newItem){
+      changeState({...state,todoItems: [...state.todoItems,newItem]});
     }
   }
 

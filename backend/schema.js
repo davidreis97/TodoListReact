@@ -5,6 +5,8 @@ function create(){
         _id: mongoose.Schema.Types.ObjectId,
         list: { type: mongoose.Schema.Types.ObjectId, ref: 'TodoList', required: true },
         title: { type: String, required: true },
+        creationDate: { type: Number, required: true },
+        finishDate: { type: Number, required: true },
         done: { type: Boolean, required: true }
     });
     
